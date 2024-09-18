@@ -1,9 +1,11 @@
 # pi-starter-code
-starter and sample code for the raspberry pi
+Starter and sample code for the raspberry pi
 
 ## Configuration (even with headless)
 
 * Use Raspberry Pi Imager (via their official site) to flash the SD card with Raspberry Pi OS. Pi Zero W needs a 32 bit OS, I advise going to the 'Raspberry Pi OS (other)' section and get Pi OS Lite (32 bit), this is headless mode. If you want a desktop mode, then go for a Legacy Pi OS version instead. 
+
+    - Pi Zero 2 can use a 64-bit os
 
 * It is worthwhile to configure extra settings (After clicking NEXT), you can set up a user, wifi network, ssh credentials, etc. 
 
@@ -19,41 +21,72 @@ starter and sample code for the raspberry pi
 
 [sudo raspi-config](https://www.raspberrypi.com/documentation/computers/configuration.html)
 
-    * Use arrows, enter, esc to navigate 
+    * Use arrows, enter, esc keys to navigate 
 
     * Some settings require a reboot, some other settings may not work or be relevant in headless mode 
 
 
-##  Shutdown 
+##  Power 
 
 ```bash
-sudo shutdown now
+sudo shutdown now # Wait for the LED to turn off completely, then you can unplug it from power
+``` 
+
+
+```bash
+sudo shutdown -r now # Reboots the pi
 ```
 
-    * Wait for the LED to turn off completely, then you can unplug it from power
 
 ## GPIO
 
-    * [https://pinout.xyz](Site with pinout info)
+[https://pinout.xyz](Site with pinout info)
 
 
-    ```bash
-    gpio readall 
-    ```
+```bash
+gpio readall 
+```
+or 
+```bash
+pinout
+```
 
-    or 
-    ```bash
-    pinout
-    ```
-
-    * make sure to shut off the pi completely and unplug from electricity before connecting or disconnecting any wires to the GPIO pins
+Make sure to shut off the pi completely and unplug from electricity before connecting or disconnecting any wires to the GPIO pins 
 
 ## Camera 
 
-    * Read this guide first: https://forums.raspberrypi.com/viewtopic.php?t=362707
+Read this guide if you are having any issues with the camera: https://forums.raspberrypi.com/viewtopic.php?t=362707
 
-    * Try to use camera via python library: Picamera2
+Image previews will probably not work via headless mode, I use SCP usually to copy the saved image file from the Pi to my Desktop PC 
 
-    * Image previews will not work via headless mode
+### Via Python:
+
+Picamera2 is recommended for newer Debian Builds (IE bookworm and newer). 
+
+```bash
+sudo apt install -y python3-picamera2 # if it wasn't preinstalled with your system
+```
+
+Try out some of the examples [here](https://github.com/raspberrypi/picamera2/tree/main/examples)
+
+### Via CLI:
+
+[Documentation](https://www.raspberrypi.com/documentation/computers/camera_software.html#install-libcamera-and-rpicam-apps)
+
+try to use rpicam rather than libcamera for newer builds (explanation in documentation)
+
+```bash
+rpicam-hello --list-cameras -n -v # shows all compatible cameras found
+```
 
 
+```bash
+rpicam-still -o ./image.jpg # take a photo and save as jpg
+```
+
+If you try to use the video feed, and you don't have a Pi 5... you should pass in the codec libav
+
+```bash
+rpicam-vid -t 10000 --codec libav --libav-format mp4 -o ./video.mp4, 10000 is the number of milliseconds to record
+```
+[Source](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/3)
