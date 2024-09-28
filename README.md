@@ -63,3 +63,24 @@ Make sure to shut off the pi completely and unplug from electricity before conne
 ## [Config Stuff](config)
 
 ## [Play with the LED](led.sh)
+
+### How to easily download scripts to your Pi:
+Find the location on github, and click "RAW". For example, we will download the LED script... you can find any other file, folder (zip), etc and use wget in a similar fashion
+
+![image](https://github.com/user-attachments/assets/a2318706-4d2d-4629-a2a0-98e3b82c01b6)
+
+Copy the URL into your computer, SSH into the Pi and move to the directory of your choice... now type `wget https://raw.githubusercontent.com/avipars/pi-starter-code/refs/heads/main/led.sh` 
+and it will save the new file as `led.sh`! 
+
+### Move files between your Pi and Windows:
+On the target machine, type something with this format: 
+
+`scp user@ip:/dir1/file "C:\temp\dir1"`
+
+SCP (secure copy)
+On the left side is the remote machine with the file we want. The right side is the current machine which is going to save the file in the temp directory, you should change this accordingly.
+Change `user` to the Pi username, ip to the IP of the Pi, and the directory structure leading to the file needs to be changed accoridng to where the file is located.
+
+Now paste your new command into CMD/Terminal and you will be prompted for the remote machine password... then the file transfer will begin. After it is done, you will be able to find the file!
+
+
