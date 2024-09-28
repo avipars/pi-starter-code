@@ -29,7 +29,8 @@ Starter and sample code for the raspberry pi
 ##  Power 
 
 ```bash
-sudo shutdown now # Wait for the LED to turn off completely, then you can unplug it from power
+sudo shutdown now # Shuts down
+# Wait for the LED to turn off completely, then you can unplug it from power
 ``` 
 
 
@@ -40,7 +41,7 @@ sudo shutdown -r now # Reboots the pi
 
 ## GPIO
 
-[https://pinout.xyz](Site with pinout info)
+[https://pinout.xyz](Site with pinout info) 
 
 
 ```bash
@@ -53,40 +54,12 @@ pinout
 
 Make sure to shut off the pi completely and unplug from electricity before connecting or disconnecting any wires to the GPIO pins 
 
-## Camera 
+## [Installing Pi OS](INSTALLING.md)
 
-Read this guide if you are having any issues with the camera: https://forums.raspberrypi.com/viewtopic.php?t=362707
+## [Wifi and SSH](CONNECTIONS.md)
 
-Image previews will probably not work via headless mode, I use SCP usually to copy the saved image file from the Pi to my Desktop PC 
+## [Camera Stuff](camera/README.md)
 
-### Via Python:
+## [Config Stuff](config)
 
-Picamera2 is recommended for newer Debian Builds (IE bookworm and newer). 
-
-```bash
-sudo apt install -y python3-picamera2 # if it wasn't preinstalled with your system
-```
-
-Try out some of the examples [here](https://github.com/raspberrypi/picamera2/tree/main/examples)
-
-### Via CLI:
-
-[Documentation](https://www.raspberrypi.com/documentation/computers/camera_software.html#install-libcamera-and-rpicam-apps)
-
-try to use rpicam rather than libcamera for newer builds (explanation in documentation)
-
-```bash
-rpicam-hello --list-cameras -n -v # shows all compatible cameras found
-```
-
-
-```bash
-rpicam-still -o ./image.jpg # take a photo and save as jpg
-```
-
-If you try to use the video feed, and you don't have a Pi 5... you should pass in the codec libav
-
-```bash
-rpicam-vid -t 10000 --codec libav --libav-format mp4 -o ./video.mp4, 10000 is the number of milliseconds to record
-```
-[Source](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/3)
+## [Play with the LED](led.sh)
