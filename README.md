@@ -41,7 +41,7 @@ sudo shutdown -r now # Reboots the pi
 
 ## GPIO
 
-[https://pinout.xyz](Site with pinout info) 
+[Site with pinout info](https://pinout.xyz)
 
 
 ```bash
