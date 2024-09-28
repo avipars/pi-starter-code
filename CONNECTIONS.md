@@ -38,5 +38,5 @@
 
 - Windows
 
-    * Open command prompt and type `ssh pi@
+    * Open command prompt and type `ssh pi@0.0.0.0 (replace 0.0.0.0 with your IP address, pi with the username you set). You will be prompted to enter your password and then click enter... You will then be logged in. 
 

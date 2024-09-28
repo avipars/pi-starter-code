@@ -5,7 +5,7 @@ Starter and sample code for the raspberry pi
 
 * Use Raspberry Pi Imager (via their official site) to flash the SD card with Raspberry Pi OS. Pi Zero W needs a 32 bit OS, I advise going to the 'Raspberry Pi OS (other)' section and get Pi OS Lite (32 bit), this is headless mode. If you want a desktop mode, then go for a Legacy Pi OS version instead. 
 
-    - Pi Zero 2 can use a 64-bit os
+    - Pi Zero 2 can use a 64-bit OS
 
 * It is worthwhile to configure extra settings (After clicking NEXT), you can set up a user, wifi network, ssh credentials, etc. 
 
