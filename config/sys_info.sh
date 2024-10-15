@@ -100,4 +100,4 @@ zip -r "$RESULTS_DIR.zip" "$RESULTS_DIR/" 2>> $ERRORFILE
 
 # Notify the user
 echo "All results saved in '$RESULTS_DIR' and zipped as '$RESULTS_DIR.zip'." | tee -a $LOGFILE 2>> $ERRORFILE
-echo "You can use SCP to download: scp pi@raspberrypi:scripts/$RESULTS_DIR.zip ." | tee -a $LOGFILE 2>> $ERRORFILE
+echo "You can use SCP to download: scp pi@192.168.1.1:scripts/$RESULTS_DIR.zip ." | tee -a $LOGFILE 2>> $ERRORFILE
