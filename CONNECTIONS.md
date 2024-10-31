@@ -34,7 +34,7 @@
 
             * Now type `arp -a -N 192.168.55.238 | FINDSTR dynamic` (replace 192.168.55.238 with your IP address), click enter and you will see the IP, MAC address of all devices found on the network. You will also see if it is static (pre-configured) or dynamic. The Pi will likely be dynamic. It should appear in a similar format to what you see below, but with more entries... Now you will need to figure out which entry is the Pi.
             
-                ![alt text](image-2.png)
+                ![alt text](/images/connect/image-2.png)
     - Android:
         - Version 4:
 
