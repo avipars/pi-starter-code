@@ -4,6 +4,8 @@ Read this guide if you are having any issues with the camera: https://forums.ras
 
 Image previews will probably not work via headless mode, I use SCP usually to copy the saved image file from the Pi to my Desktop PC 
 
+I usually SSH into the pi and run some of these commands to get a picture/video
+
 ### Via Python:
 
 Picamera2 is recommended for newer Debian Builds (IE bookworm and newer). 
@@ -32,7 +34,7 @@ rpicam-still -o ./image.jpg # take a photo and save as jpg
 If you try to use the video feed, and you don't have a Pi 5... you should pass in the codec libav
 
 ```bash
-rpicam-vid -t 10000 --codec libav --libav-format mp4 -o ./video.mp4, 10000 is the number of milliseconds to record
+rpicam-vid -t 10000 --codec libav --libav-format mp4 -o ./video.mp4 # 10000 is the number of milliseconds to record
 ```
 [Source](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera/3)
 
@@ -48,3 +50,11 @@ Similar steps can be taken to try out with a video and `vid.sh`
 ## pic.py
 
 You can run it by typing `python pic.py` 
+
+
+And to view it (if the pi is headless, I like to use SCP (from the recieiving computer to pull the files down). This works on many operating systems (including windows) from the terminal
+```bash
+scp pi@192.168.0.5:camera/* C:\Users\you\piCam # you will be prompted to enter the pi password, and then the file transfer will start
+```
+Now I can view the files on my computer
+
