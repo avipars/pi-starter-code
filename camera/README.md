@@ -1,10 +1,10 @@
 # Camera 
 
-Read this guide if you are having any issues with the camera: https://forums.raspberrypi.com/viewtopic.php?t=362707
+Read this [guide](https://forums.raspberrypi.com/viewtopic.php?t=362707) if you are having any issues connecting or using the camera
 
-Image previews will probably not work via headless mode, I use SCP usually to copy the saved image file from the Pi to my Desktop PC 
+Image previews will not work via headless mode, I use SCP usually to copy the saved image file from the Pi to my Desktop PC 
 
-I usually SSH into the pi and run some of these commands to get a picture/video
+I usually SSH into the Pi and run some of these commands to get a picture/video
 
 ### Via Python:
 
