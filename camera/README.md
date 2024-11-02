@@ -56,5 +56,14 @@ And to view it (if the pi is headless, I like to use SCP (from the recieiving co
 ```bash
 scp pi@192.168.0.5:camera/* C:\Users\you\piCam # you will be prompted to enter the pi password, and then the file transfer will start
 ```
-Now I can view the files on my computer
+Now I can view the files on my computer 
+
+Left side is for pulling a file (or files) from the pi, and the right side is the destination on your current computer (where the file will be saved to). 
+
+```pi``` is the username on my raspberry pi, if yours is different then change ```pi``` to your username, as well as the IP address of the device in ```pi@192.168.0.5``` 
+
+```camera/*``` is saying take all files within the ```camera``` directory on the Pi. You can explicitly write out a filename instead of using the ```*``` (wildcard), you could also change it to ```camera\*.jpg``` if you only wanted to pull files matching the ending ```.jpg``` 
+
+The files from the Pi will be copied to the directory (in the path) on the right side, namely ```C:\Users\you\piCam``` on your host windows machine. You should change this according to where you actually want the files to go. 
+
 
