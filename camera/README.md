@@ -18,9 +18,9 @@ Try out some of the examples [here](https://github.com/raspberrypi/picamera2/tre
 
 ### Via CLI:
 
-[Documentation](https://www.raspberrypi.com/documentation/computers/camera_software.html#install-libcamera-and-rpicam-apps)
+[Documentation](https://www.raspberrypi.com/documentation/computers/camera_software.html#install-libcamera-and-rpicam-apps) is really helpful and explains many different options in depth
 
-try to use rpicam rather than libcamera for newer builds (explanation in documentation)
+Try to use rpicam rather than libcamera for newer linux builds (explanation in documentation) 
 
 ```bash
 rpicam-hello --list-cameras -n -v # shows all compatible cameras found
