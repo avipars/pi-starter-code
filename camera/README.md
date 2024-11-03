@@ -51,8 +51,9 @@ Similar steps can be taken to try out with a video and `vid.sh`
 
 You can run it by typing `python pic.py` 
 
+### View files in Headless/Lite Mode
 
-And to view it (if the pi is headless, I like to use SCP (from the recieiving computer to pull the files down). This works on many operating systems (including windows) from the terminal
+ if the pi is headless, I like to use SCP (from the recieiving computer to pull the files down). This works on many operating systems (including windows) from the terminal
 ```bash
 scp pi@192.168.0.5:camera/* C:\Users\you\piCam # you will be prompted to enter the pi password, and then the file transfer will start
 ```
