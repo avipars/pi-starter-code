@@ -8,8 +8,8 @@ echo 1 | sudo tee /sys/class/leds/ACT/brightness
 # turn off LED
 echo 0 | sudo tee /sys/class/leds/ACT/brightness
 
-# heatbeat blink
+# heartbeat blink
 echo heartbeat | sudo tee /sys/class/leds/ACT/trigger
 
-# back to normal
+# back to normal mode
 echo mmc0 | sudo tee /sys/class/leds/ACT/trigger
