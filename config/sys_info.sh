@@ -5,7 +5,21 @@
 timestamp=$(date +%s)
 last_digits=${timestamp: -6}
 RESULTS_DIR="results/dir_$last_digits"
-mkdir -p $RESULTS_DIR
+
+# Check if an argument is provided
+if [[ $# -gt 0 ]]; then
+  # Validate the argument: Check if it's valid ASCII (printable characters)
+  if [[ "$1" =~ ^[[:print:]]+$ ]]; then
+    RESULTS_DIR="results/dir_$1_$last_digits"
+    echo "Using custom directory name: $RESULTS_DIR"
+  else
+    echo "Error: Invalid argument. Argument must contain only printable ASCII characters."
+    echo "Using default directory name: $RESULTS_DIR"
+  fi
+fi
+
+# Create the results directory
+mkdir -p "$RESULTS_DIR"
 
 LOGFILE="$RESULTS_DIR/pi_diagnostic.log"
 ERRORFILE="$RESULTS_DIR/pi_diagnostic_errors.log"
@@ -70,9 +84,6 @@ uname -a > "$RESULTS_DIR/uname.txt"
 echo "Checking USB devices..." | tee -a $LOGFILE 2>> $ERRORFILE
 lsusb -t -v > "$RESULTS_DIR/lsusb.txt"
 
-# Camera details
-echo "Detection of camera..." | tee -a $LOGFILE 2>> $ERRORFILE
-vcgencmd get_camera > "$RESULTS_DIR/camera.txt"
 # Network interface info
 echo "Getting network interface details..." | tee -a $LOGFILE 2>> $ERRORFILE
 ifconfig > "$RESULTS_DIR/ifconfig.txt"
@@ -86,18 +97,10 @@ echo "Running ping tests..." | tee -a $LOGFILE 2>> $ERRORFILE
 ping -c 6 google.com > "$RESULTS_DIR/ping.txt"
 ping -c 6 1.1.1.1 > "$RESULTS_DIR/ping2.txt"
 
-# Check if a flag was provided
-if [[ $# -gt 0 ]]; then
-    echo "Flag provided: $1" | tee -a $LOGFILE 2>> $ERRORFILE
-    echo "$1" > "$RESULTS_DIR/flag.txt"
-else
-    echo "No flag provided." | tee -a $LOGFILE 2>> $ERRORFILE
-fi
-
 # Compress results into a zip file
 echo "Zipping results..." | tee -a $LOGFILE 2>> $ERRORFILE
 zip -r "$RESULTS_DIR.zip" "$RESULTS_DIR/" 2>> $ERRORFILE
 
 # Notify the user
 echo "All results saved in '$RESULTS_DIR' and zipped as '$RESULTS_DIR.zip'." | tee -a $LOGFILE 2>> $ERRORFILE
-echo "You can use SCP to download: scp pi@192.168.1.1:scripts/$RESULTS_DIR.zip ." | tee -a $LOGFILE 2>> $ERRORFILE
+echo "You can use SCP to download: scp pi@raspberrypi.local:scripts/$RESULTS_DIR.zip ." | tee -a $LOGFILE 2>> $ERRORFILE

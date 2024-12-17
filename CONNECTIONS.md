@@ -22,7 +22,7 @@
 
             * If you recall the hostname you set in Pi Imager, ie `pi.local` then you can type `ping pi.local` in command prompt, click enter, and you should see the IP address of the Pi. If this doesn't work, you can try to ping `raspberrypi.local` or `raspberrypi` instead of `pi.local`. 
 
-                ![alt text](/images/connect/image.png)
+                ![Version 2](/images/connect/image.png)
 
                 You may get an IPv6 or v4 address as a response
 
@@ -30,11 +30,11 @@
 
             * Type `ipconfig` in command prompt, click enter and find the relevant interface (usually Wireless LAN adapter Wi-Fi) and copy the IpV4 address. In this case, we are interested in `192.168.55.238` (replace 192.168.55.238 with your computer's IP address).
 
-                ![alt text](/images/connect/image-1.png)
+                ![Version 3](/images/connect/image-1.png)
 
             * Now type `arp -a -N 192.168.55.238 | FINDSTR dynamic` (replace 192.168.55.238 with your IP address), click enter and you will see the IP, MAC address of all devices found on the network. You will also see if it is static (pre-configured) or dynamic. The Pi will likely be dynamic. It should appear in a similar format to what you see below, but with more entries... Now you will need to figure out which entry is the Pi.
             
-                ![alt text](/images/connect/image-2.png)
+                ![arp](/images/connect/image-2.png)
     - Android:
         - Version 4:
 

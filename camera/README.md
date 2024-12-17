@@ -1,10 +1,19 @@
 # Camera 
 
+Verified to work with official Pi Camera 2 running Bookworm (pi-os-lite)
+
 Read this [guide](https://forums.raspberrypi.com/viewtopic.php?t=362707) if you are having any issues connecting or using the camera
 
 Image previews will not work via headless mode, I use SCP usually to copy the saved image file from the Pi to my Desktop PC 
 
 I usually SSH into the Pi and run some of these commands to get a picture/video
+
+## Arducam
+
+If you have an Arducam Camera, you will need to follow their [guide](https://docs.arducam.com/Raspberry-Pi-Camera/Native-camera/16MP-IMX519/) on how to get it working. 
+
+Make sure to select the right model before proceeding!
+
 
 ### Via Python:
 
@@ -47,6 +56,7 @@ Firstly run `chmod +x cam.sh` to allow execution of the program.
 Now you can run it in the current directory that the script is in via `./cam.sh` or `bash cam.sh`
 
 Similar steps can be taken to try out with a video and `vid.sh`
+
 ## pic.py
 
 You can run it by typing `python pic.py` 
