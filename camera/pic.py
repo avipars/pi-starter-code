@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from picamzero import Camera
 
 cam = Camera()
