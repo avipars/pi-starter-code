@@ -55,7 +55,6 @@ Firstly run `chmod +x cam.sh` to allow execution of the program.
 
 Now you can run it in the current directory that the script is in via `./cam.sh` or `bash cam.sh`
 
-Similar steps can be taken to try out with a video and `vid.sh`
 
 ## pic.py
 
